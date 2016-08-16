@@ -1,2 +1,4 @@
-# Notice! 
-## you are on Master branch -> go to Develop branch
+# $_GET http chick
+
+## DB connection settings
+go to php-class/config.php
