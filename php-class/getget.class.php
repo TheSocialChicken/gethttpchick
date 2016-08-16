@@ -1,20 +1,16 @@
 <?php
 
-class GetGet() {
-	$text;
-	$timestamp;
+class GetGet {
+	private $text;
+	private $timestamp;
 	
 	public function setText() {
+		$this->setTimestamp();
 		$this->text = $_GET["i"];
 	}
 	
 	/** will check if GET is numeric */
-	public function getText() {
-		$this->setTimestamp();
-		return $this->text;
-	}
-	
-	private function isGet() {
+	public function isGet() {
 		if(empty($this->text)) {
 			return false;
 		} elseif(!is_numeric($this->text)) {
@@ -24,10 +20,12 @@ class GetGet() {
 		}
 	}
 	
-	private function setTimestamp() {
-		$date = new DateTime();
-		
-		$this->timestamp = date_format($date, 'U = YmdHis');
+	public function getText() {
+		return $this->text;
+	}
+	
+	private function setTimestamp() {		
+		$this->timestamp = time();
 	}
 	
 	public function getTimestamp() {
